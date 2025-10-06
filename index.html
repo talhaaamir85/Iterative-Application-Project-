@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,169 +7,251 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Main Weather View -->
+    <div id="mainView" class="container">
         <header>
-            <div class="header-title">
-                <span class="weather-icon-header">⛅</span>
-                Weather & Wind Forecast
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search for a city...">
-                <button class="search-btn" onclick="searchCity()">Search</button>
+            <div class="header-content">
+                <h1>
+                    <span class="icon">☀️</span>
+                    Weather & Wind Forecast
+                </h1>
+                <div class="header-right">
+                    <div class="search-box" onclick="showSearchView()">
+                        <span class="search-icon">🔍</span>
+                        <span>Search for a city...</span>
+                    </div>
+                    <div class="location-info">
+                        <span class="location-name">Lahti, Helsinki</span>
+                        <span class="location-subtext">Currently in Finland</span>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <div id="mainView">
-            <div class="main-content">
-                <div class="weather-card">
-                    <div class="location" id="locationName">
-                        📍 Lahti, Helsinki
-                    </div>
-                    <div class="current-weather">
-                        <div class="weather-icon-main" id="mainWeatherIcon">⛅</div>
-                        <div class="temperature" id="mainTemp">22°C</div>
-                        <div class="description" id="mainDesc">Partly Cloudy</div>
-                        <div class="feels-like" id="feelsLike">Feels like 20°C</div>
-                    </div>
-                    <div class="wind-alert" id="windAlert">
-                        Moderate Wind 15 km/h
-                    </div>
-                    <div class="weather-details">
-                        <div class="detail-item">
-                            <div class="detail-label">Humidity</div>
-                            <div class="detail-value">
-                                <span class="detail-icon">💧</span>
-                                <span id="humidity">65%</span>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label">Pressure</div>
-                            <div class="detail-value">
-                                <span class="detail-icon">🌡️</span>
-                                <span id="pressure">1013</span>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label">Visibility</div>
-                            <div class="detail-value">
-                                <span class="detail-icon">👁️</span>
-                                <span id="visibility">10km</span>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-label">Sunset</div>
-                            <div class="detail-value">
-                                <span class="detail-icon">🌅</span>
-                                <span id="sunset">6:42</span>
-                            </div>
-                        </div>
-                    </div>
+        <main class="main-content">
+            <!-- Current Weather Card -->
+            <div class="weather-card current-weather">
+                <div class="location-header">
+                    <h2>Lahti, Helsinki</h2>
                 </div>
-
-                <div class="wind-analysis">
-                    <div class="section-title">
-                        💨 Wind Speed Analysis
-                    </div>
-                    <div class="wind-speed-display">
-                        <div class="wind-label">Current Wind Speed</div>
-                        <div class="wind-speed-large" id="currentWindSpeed">15</div>
-                        <div class="wind-unit">km/h</div>
-                        <div class="wind-category" id="windCategory">Moderate Wind</div>
-                    </div>
-                    <div class="wind-scale">
-                        <div class="scale-title">Wind Speed Scale</div>
-                        <div class="scale-item">
-                            <span class="scale-label">Light Wind</span>
-                            <span class="scale-value">0-12 km/h</span>
-                        </div>
-                        <div class="scale-item">
-                            <span class="scale-label">Moderate Wind</span>
-                            <span class="scale-value">12-20 km/h</span>
-                        </div>
-                        <div class="scale-item">
-                            <span class="scale-label">Strong Wind</span>
-                            <span class="scale-value">20-30 km/h</span>
-                        </div>
-                        <div class="scale-item">
-                            <span class="scale-label">Very Strong</span>
-                            <span class="scale-value">30+ km/h</span>
-                        </div>
-                    </div>
+                <div class="weather-icon-large">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='35' r='15' fill='%23FFD700'/%3E%3Cline x1='50' y1='10' x2='50' y2='20' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='50' y1='50' x2='50' y2='60' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='25' y1='35' x2='35' y2='35' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='65' y1='35' x2='75' y2='35' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='32' y1='20' x2='39' y2='27' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='61' y1='27' x2='68' y2='20' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='32' y1='50' x2='39' y2='43' stroke='%23FFD700' stroke-width='3'/%3E%3Cline x1='61' y1='43' x2='68' y2='50' stroke='%23FFD700' stroke-width='3'/%3E%3Cellipse cx='35' cy='65' rx='20' ry='12' fill='white'/%3E%3Cellipse cx='50' cy='68' rx='25' ry='15' fill='white'/%3E%3Cellipse cx='65' cy='65' rx='20' ry='12' fill='white'/%3E%3C/svg%3E" alt="Partly Cloudy">
                 </div>
-
-                <div class="forecast-section">
-                    <div class="section-title">
-                        🌡️ 7-Day Forecast
+                <div class="temperature">22°C</div>
+                <div class="weather-description">
+                    <div>Feels like 26°C</div>
+                    <div>Partly Cloudy</div>
+                </div>
+                <button class="wind-button">Moderate Wind 15 km/h</button>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">💧</div>
+                        <div class="detail-value">65%</div>
+                        <div class="detail-label">Humidity</div>
                     </div>
-                    <div class="forecast-grid" id="forecastGrid">
-                        <div class="forecast-item">
-                            <div class="forecast-day">Today</div>
-                            <div class="forecast-icon">☀️</div>
-                            <div class="forecast-desc">Partly Cloudy</div>
-                            <div class="forecast-temp">22° / 15°</div>
-                            <div class="forecast-wind">💨 15 km/h</div>
-                        </div>
-                        <div class="forecast-item">
-                            <div class="forecast-day">Tomorrow</div>
-                            <div class="forecast-icon">☀️</div>
-                            <div class="forecast-desc">Sunny</div>
-                            <div class="forecast-temp">25° / 14°</div>
-                            <div class="forecast-wind">💨 8 km/h</div>
-                        </div>
-                        <div class="forecast-item">
-                            <div class="forecast-day">Wed</div>
-                            <div class="forecast-icon">🌧️</div>
-                            <div class="forecast-desc">Light Rain</div>
-                            <div class="forecast-temp">18° / 12°</div>
-                            <div class="forecast-wind">💨 20 km/h</div>
-                        </div>
-                        <div class="forecast-item">
-                            <div class="forecast-day">Thu</div>
-                            <div class="forecast-icon">⛅</div>
-                            <div class="forecast-desc">Thunderstorm</div>
-                            <div class="forecast-temp">17° / 10°</div>
-                            <div class="forecast-wind">💨 25 km/h</div>
-                        </div>
-                        <div class="forecast-item">
-                            <div class="forecast-day">Fri</div>
-                            <div class="forecast-icon">☁️</div>
-                            <div class="forecast-desc">Cloudy</div>
-                            <div class="forecast-temp">20° / 12°</div>
-                            <div class="forecast-wind">💨 10 km/h</div>
-                        </div>
-                        <div class="forecast-item">
-                            <div class="forecast-day">Sat</div>
-                            <div class="forecast-icon">☀️</div>
-                            <div class="forecast-desc">Partly Cloudy</div>
-                            <div class="forecast-temp">23° / 14°</div>
-                            <div class="forecast-wind">💨 6 km/h</div>
-                        </div>
-                        <div class="forecast-item">
-                            <div class="forecast-day">Sun</div>
-                            <div class="forecast-icon">☀️</div>
-                            <div class="forecast-desc">Sunny</div>
-                            <div class="forecast-temp">26° / 15°</div>
-                            <div class="forecast-wind">💨 7 km/h</div>
-                        </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🌡️</div>
+                        <div class="detail-value">1013</div>
+                        <div class="detail-label">Pressure (mb)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">👁️</div>
+                        <div class="detail-value">10km</div>
+                        <div class="detail-label">Visibility</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">🌅</div>
+                        <div class="detail-value">6:42</div>
+                        <div class="detail-label">Sunset</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="searchView" style="display: none;">
-            <div class="search-results">
-                <button class="back-btn" onclick="showMainView()">← Back to Weather</button>
-                <div class="results-header">
-                    <div class="results-title" id="searchTitle">Search Results for "Finland"</div>
-                    <div class="results-subtitle">Found 5 cities matching your search</div>
+            <!-- Wind Speed Analysis Card -->
+            <div class="weather-card wind-analysis">
+                <h3>
+                    <span class="icon-small">💨</span>
+                    Wind Speed Analysis
+                </h3>
+                <div class="wind-speed-display">
+                    <div class="wind-label">Current Wind Speed</div>
+                    <div class="wind-value">15</div>
+                    <div class="wind-unit">km/h</div>
+                    <button class="wind-status-btn">Moderate</button>
                 </div>
-                <div class="city-grid" id="cityGrid">
-                    <!-- City cards will be populated here by JavaScript -->
+                <div class="wind-scale">
+                    <h4>Wind Speed Scale</h4>
+                    <div class="scale-item">
+                        <span class="scale-label">Light Wind</span>
+                        <span class="scale-value">0-12 km/h</span>
+                    </div>
+                    <div class="scale-item active">
+                        <span class="scale-label">Moderate Wind</span>
+                        <span class="scale-value">13-20 km/h</span>
+                    </div>
+                    <div class="scale-item">
+                        <span class="scale-label">Strong Wind</span>
+                        <span class="scale-value">20-30 km/h</span>
+                    </div>
+                    <div class="scale-item">
+                        <span class="scale-label">Very Strong</span>
+                        <span class="scale-value">30+ km/h</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7-Day Forecast Card -->
+            <div class="weather-card forecast">
+                <h3>
+                    <span class="icon-small">📅</span>
+                    7-Day Forecast
+                </h3>
+                <div class="forecast-list">
+                    <div class="forecast-item">
+                        <div class="forecast-day">Today</div>
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-desc">Partly Cloudy</div>
+                        <div class="forecast-temp">22° <span class="temp-low">15°</span></div>
+                        <div class="forecast-wind">15 km/h</div>
+                    </div>
+                    <div class="forecast-item">
+                        <div class="forecast-day">Tomorrow</div>
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-desc">Sunny</div>
+                        <div class="forecast-temp">25° <span class="temp-low">18°</span></div>
+                        <div class="forecast-wind">8 km/h</div>
+                    </div>
+                    <div class="forecast-item">
+                        <div class="forecast-day">Wed</div>
+                        <div class="forecast-icon">🌤️</div>
+                        <div class="forecast-desc">Light Rain</div>
+                        <div class="forecast-temp">19° <span class="temp-low">12°</span></div>
+                        <div class="forecast-wind">20 km/h</div>
+                    </div>
+                    <div class="forecast-item">
+                        <div class="forecast-day">Thu</div>
+                        <div class="forecast-icon">⛈️</div>
+                        <div class="forecast-desc">Thunderstorms</div>
+                        <div class="forecast-temp">17° <span class="temp-low">10°</span></div>
+                        <div class="forecast-wind">25 km/h</div>
+                    </div>
+                    <div class="forecast-item">
+                        <div class="forecast-day">Fri</div>
+                        <div class="forecast-icon">☁️</div>
+                        <div class="forecast-desc">Cloudy</div>
+                        <div class="forecast-temp">20° <span class="temp-low">12°</span></div>
+                        <div class="forecast-wind">10 km/h</div>
+                    </div>
+                    <div class="forecast-item">
+                        <div class="forecast-day">Sat</div>
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-desc">Partly Cloudy</div>
+                        <div class="forecast-temp">23° <span class="temp-low">14°</span></div>
+                        <div class="forecast-wind">6 km/h</div>
+                    </div>
+                    <div class="forecast-item">
+                        <div class="forecast-day">Sun</div>
+                        <div class="forecast-icon">☀️</div>
+                        <div class="forecast-desc">Sunny</div>
+                        <div class="forecast-temp">26° <span class="temp-low">16°</span></div>
+                        <div class="forecast-wind">5 km/h</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Search View -->
+    <div id="searchView" class="container search-container" style="display: none;">
+        <header>
+            <div class="header-content">
+                <h1>
+                    <span class="icon">☀️</span>
+                    Weather & Wind Forecast
+                </h1>
+                <div class="header-right">
+                    <button class="back-button" onclick="showMainView()">← Back to Weather</button>
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="back-to-weather" onclick="showMainView()">
+                <span>← Back to Weather</span>
+            </div>
+            <h2 class="search-title">Search Results for "Finland"</h2>
+            <p class="search-subtitle">Found 5 cities matching your search</p>
+
+            <div class="search-results">
+                <div class="search-result-item">
+                    <div class="result-info">
+                        <div class="result-name">Helsinki</div>
+                        <div class="result-country">🇫🇮 Finland</div>
+                    </div>
+                    <div class="result-weather">
+                        <span class="result-icon">❄️</span>
+                        <span class="result-temp">-6°C</span>
+                    </div>
+                </div>
+
+                <div class="search-result-item">
+                    <div class="result-info">
+                        <div class="result-name">Tampere</div>
+                        <div class="result-country">🇫🇮 Finland</div>
+                    </div>
+                    <div class="result-weather">
+                        <span class="result-icon">❄️</span>
+                        <span class="result-temp">-7°C</span>
+                    </div>
+                </div>
+
+                <div class="search-result-item">
+                    <div class="result-info">
+                        <div class="result-name">Turku</div>
+                        <div class="result-country">🇫🇮 Finland</div>
+                    </div>
+                    <div class="result-weather">
+                        <span class="result-icon">❄️</span>
+                        <span class="result-temp">-3°C</span>
+                    </div>
+                </div>
+
+                <div class="search-result-item">
+                    <div class="result-info">
+                        <div class="result-name">Oulu</div>
+                        <div class="result-country">🇫🇮 Finland</div>
+                    </div>
+                    <div class="result-weather">
+                        <span class="result-icon">❄️</span>
+                        <span class="result-temp">-10°C</span>
+                    </div>
+                </div>
+
+                <div class="search-result-item">
+                    <div class="result-info">
+                        <div class="result-name">Lahti</div>
+                        <div class="result-country">🇫🇮 Finland</div>
+                    </div>
+                    <div class="result-weather">
+                        <span class="result-icon">☀️</span>
+                        <span class="result-temp">-4°C</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showSearchView() {
+            document.getElementById('mainView').style.display = 'none';
+            document.getElementById('searchView').style.display = 'block';
+        }
+
+        function showMainView() {
+            document.getElementById('searchView').style.display = 'none';
+            document.getElementById('mainView').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
