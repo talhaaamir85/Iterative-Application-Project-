@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Wind Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-title">
+                <span class="weather-icon-header">⛅</span>
+                Weather & Wind Forecast
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for a city...">
+                <button class="search-btn" onclick="searchCity()">Search</button>
+            </div>
+        </header>
 
+        <div id="mainView">
+            <div class="main-content">
+                <div class="weather-card">
+                    <div class="location" id="locationName">
+                        📍 Lahti, Helsinki
+                    </div>
+                    <div class="current-weather">
+                        <div class="weather-icon-main" id="mainWeatherIcon">⛅</div>
+                        <div class="temperature" id="mainTemp">22°C</div>
+                        <div class="description" id="mainDesc">Partly Cloudy</div>
+                        <div class="feels-like" id="feelsLike">Feels like 20°C</div>
+                    </div>
+                    <div class="wind-alert" id="windAlert">
+                        Moderate Wind 15 km/h
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Humidity</div>
+                            <div class="detail-value">
+                                <span class="detail-icon">💧</span>
+                                <span id="humidity">65%</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Pressure</div>
+                            <div class="detail-value">
+                                <span class="detail-icon">🌡️</span>
+                                <span id="pressure">1013</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Visibility</div>
+                            <div class="detail-value">
+                                <span class="detail-icon">👁️</span>
+                                <span id="visibility">10km</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Sunset</div>
+                            <div class="detail-value">
+                                <span class="detail-icon">🌅</span>
+                                <span id="sunset">6:42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wind-analysis">
+                    <div class="section-title">
+                        💨 Wind Speed Analysis
+                    </div>
+                    <div class="wind-speed-display">
+                        <div class="wind-label">Current Wind Speed</div>
+                        <div class="wind-speed-large" id="currentWindSpeed">15</div>
+                        <div class="wind-unit">km/h</div>
+                        <div class="wind-category" id="windCategory">Moderate Wind</div>
+                    </div>
+                    <div class="wind-scale">
+                        <div class="scale-title">Wind Speed Scale</div>
+                        <div class="scale-item">
+                            <span class="scale-label">Light Wind</span>
+                            <span class="scale-value">0-12 km/h</span>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-label">Moderate Wind</span>
+                            <span class="scale-value">12-20 km/h</span>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-label">Strong Wind</span>
+                            <span class="scale-value">20-30 km/h</span>
+                        </div>
+                        <div class="scale-item">
+                            <span class="scale-label">Very Strong</span>
+                            <span class="scale-value">30+ km/h</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forecast-section">
+                    <div class="section-title">
+                        🌡️ 7-Day Forecast
+                    </div>
+                    <div class="forecast-grid" id="forecastGrid">
+                        <div class="forecast-item">
+                            <div class="forecast-day">Today</div>
+                            <div class="forecast-icon">☀️</div>
+                            <div class="forecast-desc">Partly Cloudy</div>
+                            <div class="forecast-temp">22° / 15°</div>
+                            <div class="forecast-wind">💨 15 km/h</div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-day">Tomorrow</div>
+                            <div class="forecast-icon">☀️</div>
+                            <div class="forecast-desc">Sunny</div>
+                            <div class="forecast-temp">25° / 14°</div>
+                            <div class="forecast-wind">💨 8 km/h</div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-day">Wed</div>
+                            <div class="forecast-icon">🌧️</div>
+                            <div class="forecast-desc">Light Rain</div>
+                            <div class="forecast-temp">18° / 12°</div>
+                            <div class="forecast-wind">💨 20 km/h</div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-day">Thu</div>
+                            <div class="forecast-icon">⛅</div>
+                            <div class="forecast-desc">Thunderstorm</div>
+                            <div class="forecast-temp">17° / 10°</div>
+                            <div class="forecast-wind">💨 25 km/h</div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-day">Fri</div>
+                            <div class="forecast-icon">☁️</div>
+                            <div class="forecast-desc">Cloudy</div>
+                            <div class="forecast-temp">20° / 12°</div>
+                            <div class="forecast-wind">💨 10 km/h</div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-day">Sat</div>
+                            <div class="forecast-icon">☀️</div>
+                            <div class="forecast-desc">Partly Cloudy</div>
+                            <div class="forecast-temp">23° / 14°</div>
+                            <div class="forecast-wind">💨 6 km/h</div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-day">Sun</div>
+                            <div class="forecast-icon">☀️</div>
+                            <div class="forecast-desc">Sunny</div>
+                            <div class="forecast-temp">26° / 15°</div>
+                            <div class="forecast-wind">💨 7 km/h</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="searchView" style="display: none;">
+            <div class="search-results">
+                <button class="back-btn" onclick="showMainView()">← Back to Weather</button>
+                <div class="results-header">
+                    <div class="results-title" id="searchTitle">Search Results for "Finland"</div>
+                    <div class="results-subtitle">Found 5 cities matching your search</div>
+                </div>
+                <div class="city-grid" id="cityGrid">
+                    <!-- City cards will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
