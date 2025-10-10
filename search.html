@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Search Results</title>
+  </head>
+  <body>
+    <div class="city-search-wrapper">
+      <div class="forecast-header">
+        <span class="cloud-icon">☁️</span>
+        <span class="main-title">Weather & Wind Forecast</span>
+        <a href="index.html" class="back-btn">← Back to Main</a>
+      </div>
+
+      <div class="search-results">
+        <div class="search-label">
+          Search Results for "<span class="highlight" id="searchQuery"></span>"
+        </div>
+        <div class="search-desc">Found 5 cities matching your search</div>
+
+        <div class="city-list">
+          <a class="city-card" href="index.html?city=Helsinki">
+            <div class="city-name">Helsinki</div>
+            <div class="country">Finland</div>
+            <div class="temp-row"><span class="city-temp">-6&deg;C</span></div>
+          </a>
+          <a class="city-card" href="index.html?city=Tampere">
+            <div class="city-name">Tampere</div>
+            <div class="country">Finland</div>
+            <div class="temp-row"><span class="city-temp">-7&deg;C</span></div>
+          </a>
+          <a class="city-card" href="index.html?city=Turku">
+            <div class="city-name">Turku</div>
+            <div class="country">Finland</div>
+            <div class="temp-row"><span class="city-temp">-3&deg;C</span></div>
+          </a>
+          <a class="city-card" href="index.html?city=Oulu">
+            <div class="city-name">Oulu</div>
+            <div class="country">Finland</div>
+            <div class="temp-row"><span class="city-temp">-10&deg;C</span></div>
+          </a>
+          <a class="city-card" href="index.html?city=Lahti">
+            <div class="city-name">Lahti</div>
+            <div class="country">Finland</div>
+            <div class="temp-row"><span class="city-temp">-4&deg;C</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ JavaScript to read query -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get("query");
+      if (query) {
+        document.getElementById("searchQuery").textContent = query;
+      }
+    </script>
+  </body>
+</html>
 
